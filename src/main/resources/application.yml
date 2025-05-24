@@ -1,0 +1,23 @@
+server:
+  port: 8085
+
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://ep-morning-cake-a46o3cf8-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: npg_tGu4yQWLh9jb
+    show-sql: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://securetoken.google.com/security-prs1
+
+
+
+logging:
+  level:
+    root: INFO
+    org.springframework.kafka: DEBUG
+    pe.edu.vallegrande.report_service: DEBUG

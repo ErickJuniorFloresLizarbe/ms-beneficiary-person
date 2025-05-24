@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  beneficiary-service:
+    image: imagen_prueba:latest
+    ports:
+      - "8085:8085"
