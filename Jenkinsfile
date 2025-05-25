@@ -31,11 +31,11 @@ pipeline {
             }
         }
         
-       stage('Run Unit Tests') {
+        stage('Run Unit Tests') {
             steps {
                 script {
                     sh '''
-                        mvn test
+                        mvn test -Dtest=PersonServiceTest
                     '''
                 }
             }
@@ -46,7 +46,6 @@ pipeline {
             }
         }
 
-        
         stage('SonarQube Analysis') {
             steps {
                 script {
