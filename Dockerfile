@@ -1,10 +1,5 @@
-FROM openjdk:17-jdk-alpine
+FROM amazoncorretto:17-alpine-jdk
 
-WORKDIR /app
+COPY target/beneficiary-0.0.1-SNAPSHOT.jar /api-v1.jar
 
-EXPOSE 8085
-
-    
-ADD ./target/beneficiary-0.0.1-SNAPSHOT.jar app.jar
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "/api-v1.jar"]
