@@ -22,9 +22,9 @@ public class SecurityConfig {
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(auth -> auth
 
-                        .anyExchange().permitAll() // Permitir acceso a todos los endpoints
+                        .pathMatchers("/swagger-ui/**", "/v3/api-docs/**", "/actuator/**").permitAll() 
+                        .anyExchange().authenticated()
 
-                        //.anyExchange().authenticated()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(Customizer.withDefaults())
