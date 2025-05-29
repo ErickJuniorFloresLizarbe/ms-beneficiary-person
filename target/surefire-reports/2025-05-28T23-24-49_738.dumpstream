@@ -1,4 +1,4 @@
-# Created at 2025-05-28T18:44:36.872
+# Created at 2025-05-28T23:24:50.080
 Boot Manifest-JAR contains absolute paths in classpath 'D:\RepoEdu\ms-beneficiary-person\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root

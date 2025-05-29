@@ -17,8 +17,8 @@ import reactor.core.publisher.Mono;
 @Service
 public class PersonService {
 
-    private static final String EDUCATION_SERVICE_BASE_URL = "https://ms-education.onrender.com";
-    private static final String HEALTH_SERVICE_BASE_URL = "https://ms-health.onrender.com";
+    private static final String EDUCATION_SERVICE_BASE_URL = "https://ms-beneficiary-education.onrender.com";
+    private static final String HEALTH_SERVICE_BASE_URL = "https://ms-beneficiary-health.onrender.com";
 
 
     @Autowired
