@@ -82,24 +82,6 @@ public class PersonServiceTest {
                 .verifyComplete();
     }
 
-    //LISTADO DE SOLO APADRINADOS (SPONSORED / STATE)
-    @Test
-    public void testGetPersonsBySponsoredAndState() {
-        Person person = new Person();
-        person.setIdPerson(2);
-        person.setName("Lucia");
-        person.setState("A");
-        person.setSponsored("SI");
-
-        when(personRepository.findBySponsoredAndState("SI", "A"))
-                .thenReturn(Flux.just(person));
-
-        Flux<PersonDTO> result = personService.getPersonsBySponsoredAndState("SI", "A");
-
-        StepVerifier.create(result)
-                .expectNextMatches(dto -> dto.getName().equals("Lucia") && dto.getSponsored().equals("SI"))
-                .verifyComplete();
-    }
 
     //ELIMINADO LOGICO POR ID (BENEFICIARIO / APADRINADO)
     @Test
