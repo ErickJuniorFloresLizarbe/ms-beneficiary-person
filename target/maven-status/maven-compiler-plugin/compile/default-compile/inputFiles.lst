@@ -1,4 +1,5 @@
 D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\BeneficiaryApplication.java
+D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\config\AuthContextWebFilter.java
 D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\config\CorsConfig.java
 D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\config\SecurityConfig.java
 D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\config\SwaggerConfig.java
@@ -13,3 +14,6 @@ D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\re
 D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\repository\HealthRepository.java
 D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\repository\PersonRepository.java
 D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\service\PersonService.java
+D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\webclient\JwtDecoderConfig.java
+D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\webclient\PersonClient.java
+D:\RepoEdu\ms-beneficiary-person\src\main\java\pe\edu\vallegrande\beneficiary\webclient\WebClientConfig.java
