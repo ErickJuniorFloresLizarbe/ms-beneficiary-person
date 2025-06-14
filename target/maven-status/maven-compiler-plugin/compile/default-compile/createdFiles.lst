@@ -1,7 +1,6 @@
 pe\edu\vallegrande\beneficiary\webclient\JwtDecoderConfig.class
 pe\edu\vallegrande\beneficiary\config\SecurityConfig.class
 pe\edu\vallegrande\beneficiary\webclient\WebClientConfig.class
-pe\edu\vallegrande\beneficiary\config\SwaggerConfig.class
 pe\edu\vallegrande\beneficiary\dto\PersonDTO.class
 pe\edu\vallegrande\beneficiary\dto\HealthDTO.class
 pe\edu\vallegrande\beneficiary\model\Person.class
@@ -13,6 +12,7 @@ pe\edu\vallegrande\beneficiary\webclient\PersonClient.class
 pe\edu\vallegrande\beneficiary\BeneficiaryApplication.class
 pe\edu\vallegrande\beneficiary\controller\PersonController.class
 pe\edu\vallegrande\beneficiary\repository\PersonRepository.class
+pe\edu\vallegrande\beneficiary\config\JwtConverterConfig.class
 pe\edu\vallegrande\beneficiary\config\CorsConfig.class
 pe\edu\vallegrande\beneficiary\service\PersonService.class
 pe\edu\vallegrande\beneficiary\dto\EducationDTO.class

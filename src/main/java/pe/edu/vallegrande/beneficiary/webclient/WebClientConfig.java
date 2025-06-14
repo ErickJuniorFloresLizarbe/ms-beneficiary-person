@@ -11,12 +11,12 @@ import reactor.core.publisher.Mono;
 @Configuration
 public class WebClientConfig {
 
-    // URL DEL MICROSERVICIO HEALTH
-    @Value("${health-service.url:https://ms-beneficiary-health.onrender.com}")
+    // URL DEL MICROSERVICIO HEALTH 
+    @Value("${SERVICIES_HEALTH}")
     private String healthBaseUrl;
 
     // URL DEL MICROSERVICIO EDUCATION
-    @Value("${education-service.url:https://ms-beneficiary-education.onrender.com}")
+    @Value("${SERVICIES_EDUCATION}")
     private String educationBaseUrl;
 
     
