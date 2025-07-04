@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pe.edu.vallegrande.beneficiary.dto.PersonDTO;
+import pe.edu.vallegrande.beneficiary.dto.PersonWithSingleDetailsDTO;
 import pe.edu.vallegrande.beneficiary.service.PersonService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -45,6 +46,16 @@ public class PersonController {
     @GetMapping("/{id}/details")
     public Mono<PersonDTO> getPersonByIdWithDetails(@PathVariable Integer id) {
         return personService.getPersonByIdWithDetails(id);
+    }
+
+    //LISTA LOS BENEFICIARIOS Y LOS APADRINADOS CON SU ULTIMO DATO EN EDUCATION Y HEALTH
+    @GetMapping("/filter-with-details")
+    public Flux<PersonWithSingleDetailsDTO> getPersonsWithSingleDetails(
+            @RequestParam(required = false) String typeKinship,
+            @RequestParam(required = false) String sponsored,
+            @RequestParam(required = false) String state) {
+
+        return personService.getPersonsWithSingleDetails(typeKinship, sponsored, state);
     }
 
     //ELIMINADO LOGICO

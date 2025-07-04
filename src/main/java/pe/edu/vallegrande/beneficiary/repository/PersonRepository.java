@@ -41,4 +41,5 @@ public interface PersonRepository extends R2dbcRepository<Person, Integer> {
     @Query("SELECT id_person FROM person ORDER BY id_person DESC LIMIT 1")
     Mono<Integer> getLastInsertedId();
 
+    Flux<Person> findAll();
 }

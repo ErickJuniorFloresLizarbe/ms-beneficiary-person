@@ -19,7 +19,7 @@ public class JwtConverterConfig {
         converter.setJwtGrantedAuthoritiesConverter((Jwt jwt) -> {
             String role = jwt.getClaimAsString("role");
             if (role == null || role.trim().isEmpty()) {
-                return Flux.empty();  // ✅ Sin rol = sin permisos
+                return Flux.empty();  // Sin rol = sin permisos
             }
 
             // Crear authority con prefijo ROLE_

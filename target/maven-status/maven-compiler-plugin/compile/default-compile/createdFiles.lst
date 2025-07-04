@@ -4,6 +4,7 @@ pe\edu\vallegrande\beneficiary\webclient\WebClientConfig.class
 pe\edu\vallegrande\beneficiary\dto\PersonDTO.class
 pe\edu\vallegrande\beneficiary\dto\HealthDTO.class
 pe\edu\vallegrande\beneficiary\model\Person.class
+pe\edu\vallegrande\beneficiary\dto\PersonWithSingleDetailsDTO.class
 pe\edu\vallegrande\beneficiary\model\Health.class
 pe\edu\vallegrande\beneficiary\config\AuthContextWebFilter.class
 pe\edu\vallegrande\beneficiary\repository\EducationRepository.class

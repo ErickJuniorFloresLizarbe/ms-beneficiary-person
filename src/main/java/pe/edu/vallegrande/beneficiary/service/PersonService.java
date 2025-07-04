@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import pe.edu.vallegrande.beneficiary.dto.EducationDTO;
 import pe.edu.vallegrande.beneficiary.dto.HealthDTO;
 import pe.edu.vallegrande.beneficiary.dto.PersonDTO;
+import pe.edu.vallegrande.beneficiary.dto.PersonWithSingleDetailsDTO;
 import pe.edu.vallegrande.beneficiary.model.Person;
 import pe.edu.vallegrande.beneficiary.repository.PersonRepository;
 import pe.edu.vallegrande.beneficiary.webclient.PersonClient;
@@ -23,7 +24,7 @@ public class PersonService {
     @Autowired
     private PersonClient personClient;
 
-    
+    //LISTADO POR BENEFICIARIOS Y APADRINADOS (A - I)
     public Flux<PersonDTO> getPersonsByTypeKinshipAndState(String typeKinship, String state) {
         return personRepository.findByTypeKinshipAndState(typeKinship, state)
                 .map(this::convertToDTO);
@@ -45,6 +46,35 @@ public class PersonService {
 
                     Mono<List<HealthDTO>> healthMono = personClient.getHealthByPersonId(person.getIdPerson())
                             .collectList();
+
+                    return Mono.zip(educationMono, healthMono)
+                            .map(tuple -> {
+                                dto.setEducation(tuple.getT1());
+                                dto.setHealth(tuple.getT2());
+                                return dto;
+                            });
+                });
+    }
+
+    public Flux<PersonWithSingleDetailsDTO> getPersonsWithSingleDetails(String typeKinship, String sponsored, String state) {
+
+        return personRepository.findAll()
+                .filter(person -> typeKinship == null || typeKinship.equals(person.getTypeKinship()))
+                .filter(person -> sponsored == null || sponsored.equals(person.getSponsored()))
+                .filter(person -> state == null || state.equals(person.getState()))
+                .flatMap(person -> {
+
+                    PersonWithSingleDetailsDTO dto = convertToSingleDetailDTO(person);
+
+                    Mono<EducationDTO> educationMono = personClient.getEducationByPersonId(person.getIdPerson())
+                            .last()
+                            .onErrorResume(e -> Mono.empty())
+                            .defaultIfEmpty(new EducationDTO());
+
+                    Mono<HealthDTO> healthMono = personClient.getHealthByPersonId(person.getIdPerson())
+                            .last()
+                            .onErrorResume(e -> Mono.empty())
+                            .defaultIfEmpty(new HealthDTO());
 
                     return Mono.zip(educationMono, healthMono)
                             .map(tuple -> {
@@ -171,4 +201,21 @@ public class PersonService {
         dto.setFamilyId(person.getFamilyId());
         return dto;
     }
+
+    private PersonWithSingleDetailsDTO convertToSingleDetailDTO(Person person) {
+        PersonWithSingleDetailsDTO dto = new PersonWithSingleDetailsDTO();
+        dto.setIdPerson(person.getIdPerson());
+        dto.setName(person.getName());
+        dto.setSurname(person.getSurname());
+        dto.setAge(person.getAge());
+        dto.setBirthdate(person.getBirthdate());
+        dto.setTypeDocument(person.getTypeDocument());
+        dto.setDocumentNumber(person.getDocumentNumber());
+        dto.setTypeKinship(person.getTypeKinship());
+        dto.setSponsored(person.getSponsored());
+        dto.setState(person.getState());
+        dto.setFamilyId(person.getFamilyId());
+        return dto;
+    }
+
 }
